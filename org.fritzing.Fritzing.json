@@ -6,7 +6,8 @@
     "command": "Fritzing",
     "rename-icon": "fritzing",
     "finish-args": [
-        "--socket=fallback-x11", "--share=ipc",
+        "--socket=fallback-x11",
+        "--share=ipc",
         "--socket=wayland",
         "--device=dri",
         "--socket=pulseaudio",
@@ -45,7 +46,9 @@
         },
         {
             "name": "ngspice",
-            "build-options": {"strip": true},
+            "build-options": {
+                "strip": true
+            },
             "config-opts": [
                 "--enable-xspice",
                 "--enable-cider",
@@ -55,16 +58,16 @@
                 "--with-ngshared"
             ],
             "sources": [
-              {
-                "type": "git",
-                "url": "https://git.code.sf.net/p/ngspice/ngspice",
-                "tag": "ngspice-40",
-                "commit": "6eeb48bb5a1e0132ae7d58ac5cd05d9785c6b31c",
-                "x-checker-data": {
+                {
                     "type": "git",
-                    "tag-pattern": "^ngspice-([\\d]+)$"
+                    "url": "https://git.code.sf.net/p/ngspice/ngspice",
+                    "tag": "ngspice-40",
+                    "commit": "6eeb48bb5a1e0132ae7d58ac5cd05d9785c6b31c",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^ngspice-([\\d]+)$"
+                    }
                 }
-              }
             ]
         },
         {
