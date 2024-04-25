@@ -4,7 +4,7 @@ on:
     tags:
       - 'v*'
       - 'pv*'
-    pull_request:
+  pull_request:
 name: CI-CL
 jobs:
 
