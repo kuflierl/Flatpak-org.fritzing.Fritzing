@@ -59,7 +59,11 @@
                 "type": "git",
                 "url": "https://git.code.sf.net/p/ngspice/ngspice",
                 "tag": "ngspice-40",
-                "commit": "6eeb48bb5a1e0132ae7d58ac5cd05d9785c6b31c"
+                "commit": "6eeb48bb5a1e0132ae7d58ac5cd05d9785c6b31c",
+                "x-checker-data": {
+                    "type": "git",
+                    "tag-pattern": "^ngspice-([\\d]+)$"
+                }
               }
             ]
         },
@@ -70,7 +74,13 @@
                 {
                     "type": "archive",
                     "url": "https://downloads.sourceforge.net/polyclipping/clipper_ver6.4.2.zip",
-                    "sha256": "a14320d82194807c4480ce59c98aa71cd4175a5156645c4e2b3edd330b930627"
+                    "sha256": "a14320d82194807c4480ce59c98aa71cd4175a5156645c4e2b3edd330b930627",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 3683,
+                        "stable-only": true,
+                        "url-template": "https://downloads.sourceforge.net/polyclipping/clipper_ver${version}.zip"
+                    }
                 }
             ]
         },
@@ -82,7 +92,11 @@
                     "type": "git",
                     "url": "https://github.com/stachenov/quazip",
                     "tag": "v1.4",
-                    "commit": "566fa496649b8cb09018b497575bb3bf2977965f"
+                    "commit": "566fa496649b8cb09018b497575bb3bf2977965f",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^v([\\d.]+)$"
+                    }
                 }
             ]
         },
@@ -97,7 +111,11 @@
                     "type": "git",
                     "url": "https://github.com/libgit2/libgit2",
                     "tag": "v1.7.2",
-                    "commit": "a418d9d4ab87bae16b87d8f37143a4687ae0e4b2"
+                    "commit": "a418d9d4ab87bae16b87d8f37143a4687ae0e4b2",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^v([\\d.]+)$"
+                    }
                 }
             ]
         },
