@@ -1,197 +1,197 @@
 {
-    "id": "org.fritzing.Fritzing",
-    "runtime": "org.kde.Platform",
-    "sdk": "org.kde.Sdk",
-    "runtime-version": "6.5",
-    "command": "Fritzing",
-    "rename-icon": "fritzing",
-    "finish-args": [
-        "--socket=fallback-x11",
-        "--share=ipc",
-        "--socket=wayland",
-        "--device=dri",
-        "--socket=pulseaudio",
-        "--filesystem=xdg-documents",
-        "--share=network"
-    ],
-    "cleanup": [
-        "*.a",
-        "*.la",
-        "/include",
-        "/lib/pkgconfig",
-        "/lib/cmake",
-        "/share/man"
-    ],
-    "modules": [
+  "id": "org.fritzing.Fritzing",
+  "runtime": "org.kde.Platform",
+  "sdk": "org.kde.Sdk",
+  "runtime-version": "6.5",
+  "command": "Fritzing",
+  "rename-icon": "fritzing",
+  "finish-args": [
+    "--socket=fallback-x11",
+    "--share=ipc",
+    "--socket=wayland",
+    "--device=dri",
+    "--socket=pulseaudio",
+    "--filesystem=xdg-documents",
+    "--share=network"
+  ],
+  "cleanup": [
+    "*.a",
+    "*.la",
+    "/include",
+    "/lib/pkgconfig",
+    "/lib/cmake",
+    "/share/man"
+  ],
+  "modules": [
+    {
+      "name": "boost",
+      "buildsystem": "simple",
+      "build-commands": [
+        "./bootstrap.sh --with-libraries=graph",
+        "./b2 install variant=release link=shared runtime-link=shared --prefix=/app -j $FLATPAK_BUILDER_N_JOBS"
+      ],
+      "sources": [
         {
-            "name": "boost",
-            "buildsystem": "simple",
-            "build-commands": [
-                "./bootstrap.sh --with-libraries=graph",
-                "./b2 install variant=release link=shared runtime-link=shared --prefix=/app -j $FLATPAK_BUILDER_N_JOBS"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://boostorg.jfrog.io/artifactory/main/release/1.81.0/source/boost_1_81_0.tar.gz",
-                    "sha256": "205666dea9f6a7cfed87c7a6dfbeb52a2c1b9de55712c9c1a87735d7181452b6",
-                    "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 6845,
-                        "stable-only": true,
-                        "url-template": "https://boostorg.jfrog.io/artifactory/main/release/$version/source/boost_${major}_${minor}_$patch.tar.bz2"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "ngspice",
-            "build-options": {
-                "strip": true
-            },
-            "config-opts": [
-                "--enable-xspice",
-                "--enable-cider",
-                "--enable-oldapps",
-                "--enable-openmp",
-                "--without-x",
-                "--with-ngshared"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://git.code.sf.net/p/ngspice/ngspice",
-                    "tag": "ngspice-40",
-                    "commit": "6eeb48bb5a1e0132ae7d58ac5cd05d9785c6b31c",
-                    "x-checker-data": {
-                        "type": "git",
-                        "tag-pattern": "^ngspice-([\\d]+)$"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "polyclipping",
-            "buildsystem": "cmake",
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://downloads.sourceforge.net/polyclipping/clipper_ver6.4.2.zip",
-                    "sha256": "a14320d82194807c4480ce59c98aa71cd4175a5156645c4e2b3edd330b930627",
-                    "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 3683,
-                        "stable-only": true,
-                        "url-template": "https://downloads.sourceforge.net/polyclipping/clipper_ver${version}.zip"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "quazip",
-            "buildsystem": "cmake-ninja",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/stachenov/quazip",
-                    "tag": "v1.4",
-                    "commit": "566fa496649b8cb09018b497575bb3bf2977965f",
-                    "x-checker-data": {
-                        "type": "git",
-                        "tag-pattern": "^v([\\d.]+)$"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "libgit2",
-            "buildsystem": "cmake-ninja",
-            "build-options": {
-                "cflags": "-Wp,-U_FORTIFY_SOURCE"
-            },
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/libgit2/libgit2",
-                    "tag": "v1.7.2",
-                    "commit": "a418d9d4ab87bae16b87d8f37143a4687ae0e4b2",
-                    "x-checker-data": {
-                        "type": "git",
-                        "tag-pattern": "^v([\\d.]+)$"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "fritzing",
-            "buildsystem": "qmake",
-            "build-options": {
-                "env": {
-                    "QT_QPA_PLATFORM": "offscreen"
-                }
-            },
-            "post-install": [
-                "Fritzing -db /app/share/fritzing/parts/parts.db -pp /app/share/fritzing/parts -f /app/share/fritzing",
-                "install -Dm755 /app/share/{pixmaps,icons/hicolor/256x256/apps}/fritzing.png",
-                "mv /app/share/mime/packages/{fritzing,org.fritzing.Fritzing}.xml",
-                "sh install-mime-types.sh"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/fritzing/fritzing-app.git",
-                    "commit": "dbdbe34c843677df721c7b3fc3e32c0f737e7e95"
-                },
-                {
-                    "type": "git",
-                    "url": "https://github.com/svgpp/svgpp.git",
-                    "tag": "v1.3.1",
-                    "commit": "fda1fd889548289178261d7aa02dd5d647247f94",
-                    "dest": "svgpp",
-                    "x-checker-data": {
-                        "type": "git",
-                        "tag-pattern": "^v([\\d.]+)$"
-                    }
-                },
-                {
-                    "type": "patch",
-                    "paths": [
-                        "patches/dep-ngspice-buildpath.patch",
-                        "patches/dep-quazip-buildpath.patch",
-                        "patches/dep-polyclipping-buildpath.patch",
-                        "patches/dep-svgpp-buildpath.patch",
-                        "patches/fritzing-appdata.patch",
-                        "patches/add-wm-class.patch"
-                    ]
-                },
-                {
-                    "type": "git",
-                    "url": "https://github.com/fritzing/fritzing-parts.git",
-                    "tag": "1.0.2",
-                    "commit": "015626e6cafb1fc7831c2e536d97ca2275a83d32",
-                    "dest": "parts",
-                    "x-checker-data": {
-                        "type": "git",
-                        "tag-pattern": "^([\\d.]+)$"
-                    }
-                },
-                {
-                    "type": "shell",
-                    "commands": [
-                        "sed -i 's/LIBGIT_STATIC = true/LIBGIT_STATIC = false/' phoenix.pro"
-                    ]
-                },
-                {
-                    "type": "file",
-                    "path": "install-mime-types.sh"
-                },
-                {
-                    "type": "shell",
-                    "commands": [
-                        "lrelease phoenix.pro"
-                    ]
-                }
-            ]
+          "type": "archive",
+          "url": "https://boostorg.jfrog.io/artifactory/main/release/1.85.0/source/boost_1_85_0.tar.bz2",
+          "sha256": "7009fe1faa1697476bdc7027703a2badb84e849b7b0baad5086b087b971f8617",
+          "x-checker-data": {
+            "type": "anitya",
+            "project-id": 6845,
+            "stable-only": true,
+            "url-template": "https://boostorg.jfrog.io/artifactory/main/release/$version/source/boost_${major}_${minor}_$patch.tar.bz2"
+          }
         }
-    ]
+      ]
+    },
+    {
+      "name": "ngspice",
+      "build-options": {
+        "strip": true
+      },
+      "config-opts": [
+        "--enable-xspice",
+        "--enable-cider",
+        "--enable-oldapps",
+        "--enable-openmp",
+        "--without-x",
+        "--with-ngshared"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://git.code.sf.net/p/ngspice/ngspice",
+          "tag": "ngspice-42",
+          "commit": "902a62d2f442a1d8322ae4fcad35c143c7a14561",
+          "x-checker-data": {
+            "type": "git",
+            "tag-pattern": "^ngspice-([\\d]+)$"
+          }
+        }
+      ]
+    },
+    {
+      "name": "polyclipping",
+      "buildsystem": "cmake",
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://downloads.sourceforge.net/polyclipping/clipper_ver6.4.2.zip",
+          "sha256": "a14320d82194807c4480ce59c98aa71cd4175a5156645c4e2b3edd330b930627",
+          "x-checker-data": {
+            "type": "anitya",
+            "project-id": 3683,
+            "stable-only": true,
+            "url-template": "https://downloads.sourceforge.net/polyclipping/clipper_ver${version}.zip"
+          }
+        }
+      ]
+    },
+    {
+      "name": "quazip",
+      "buildsystem": "cmake-ninja",
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/stachenov/quazip",
+          "tag": "v1.4",
+          "commit": "566fa496649b8cb09018b497575bb3bf2977965f",
+          "x-checker-data": {
+            "type": "git",
+            "tag-pattern": "^v([\\d.]+)$"
+          }
+        }
+      ]
+    },
+    {
+      "name": "libgit2",
+      "buildsystem": "cmake-ninja",
+      "build-options": {
+        "cflags": "-Wp,-U_FORTIFY_SOURCE"
+      },
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/libgit2/libgit2",
+          "tag": "v1.8.0",
+          "commit": "d74d491481831ddcd23575d376e56d2197e95910",
+          "x-checker-data": {
+            "type": "git",
+            "tag-pattern": "^v([\\d.]+)$"
+          }
+        }
+      ]
+    },
+    {
+      "name": "fritzing",
+      "buildsystem": "qmake",
+      "build-options": {
+        "env": {
+          "QT_QPA_PLATFORM": "offscreen"
+        }
+      },
+      "post-install": [
+        "Fritzing -db /app/share/fritzing/parts/parts.db -pp /app/share/fritzing/parts -f /app/share/fritzing",
+        "install -Dm755 /app/share/{pixmaps,icons/hicolor/256x256/apps}/fritzing.png",
+        "mv /app/share/mime/packages/{fritzing,org.fritzing.Fritzing}.xml",
+        "sh install-mime-types.sh"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/fritzing/fritzing-app.git",
+          "commit": "dbdbe34c843677df721c7b3fc3e32c0f737e7e95"
+        },
+        {
+          "type": "git",
+          "url": "https://github.com/svgpp/svgpp.git",
+          "tag": "v1.3.1",
+          "commit": "fda1fd889548289178261d7aa02dd5d647247f94",
+          "dest": "svgpp",
+          "x-checker-data": {
+            "type": "git",
+            "tag-pattern": "^v([\\d.]+)$"
+          }
+        },
+        {
+          "type": "patch",
+          "paths": [
+            "patches/dep-ngspice-buildpath.patch",
+            "patches/dep-quazip-buildpath.patch",
+            "patches/dep-polyclipping-buildpath.patch",
+            "patches/dep-svgpp-buildpath.patch",
+            "patches/fritzing-appdata.patch",
+            "patches/add-wm-class.patch"
+          ]
+        },
+        {
+          "type": "git",
+          "url": "https://github.com/fritzing/fritzing-parts.git",
+          "tag": "1.0.2",
+          "commit": "015626e6cafb1fc7831c2e536d97ca2275a83d32",
+          "dest": "parts",
+          "x-checker-data": {
+            "type": "git",
+            "tag-pattern": "^([\\d.]+)$"
+          }
+        },
+        {
+          "type": "shell",
+          "commands": [
+            "sed -i 's/LIBGIT_STATIC = true/LIBGIT_STATIC = false/' phoenix.pro"
+          ]
+        },
+        {
+          "type": "file",
+          "path": "install-mime-types.sh"
+        },
+        {
+          "type": "shell",
+          "commands": [
+            "lrelease phoenix.pro"
+          ]
+        }
+      ]
+    }
+  ]
 }
