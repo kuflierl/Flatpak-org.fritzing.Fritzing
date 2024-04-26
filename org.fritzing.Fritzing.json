@@ -165,16 +165,11 @@
                     ]
                 },
                 {
-                    "type": "archive",
-                    "url": "https://github.com/fritzing/fritzing-parts/archive/refs/heads/1.0.2.zip",
-                    "sha256": "eab4f1efe290d1a783a09155efc8380ec35d0155c007dda8ff1bfa36ede49910",
-                    "dest": "parts",
-                    "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 858,
-                        "stable-only": true,
-                        "url-template": "https://github.com/fritzing/fritzing-parts/archive/refs/heads/${version}.zip"
-                    }
+                    "type": "git",
+                    "url": "https://github.com/fritzing/fritzing-parts.git",
+                    "branch": "1.0.2",
+                    "commit": "015626e6cafb1fc7831c2e536d97ca2275a83d32",
+                    "dest": "parts"
                 },
                 {
                     "type": "shell",
