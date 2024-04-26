@@ -8,8 +8,19 @@ on:
 name: CI-CL
 jobs:
 
+  lint:
+    name: "Flatpak Manifest Lint"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+    steps:
+     - uses: actions/checkout@v4
+     - uses: docker://ghcr.io/flathub/flatpak-builder-lint:latest
+       with:
+          args: --exceptions manifest org.fritzing.Fritzing.json
+          
   build:
-    name: "Flatpak"
+    name: "Flatpak Build"
     runs-on: ubuntu-latest
     container:
       image: bilelmoussaoui/flatpak-github-actions:kde-6.5
