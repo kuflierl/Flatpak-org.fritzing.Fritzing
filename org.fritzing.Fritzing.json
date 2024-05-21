@@ -113,8 +113,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libgit2/libgit2",
-                    "tag": "v1.8.0",
-                    "commit": "d74d491481831ddcd23575d376e56d2197e95910",
+                    "tag": "v1.8.1",
+                    "commit": "36f7e21ad757a3dacc58cf7944329da6bc1d6e96",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^v([\\d.]+)$"
