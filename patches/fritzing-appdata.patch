@@ -1,23 +1,13 @@
 diff --git a/org.fritzing.Fritzing.appdata.xml b/org.fritzing.Fritzing.appdata.xml
-index e1b9a541..da022089 100644
+index 8d087d71..2656de70 100644
 --- a/org.fritzing.Fritzing.appdata.xml
 +++ b/org.fritzing.Fritzing.appdata.xml
-@@ -9,6 +9,9 @@
-   <content_attribute id="social-info">mild</content_attribute>
-  </content_rating>
-  <name>Fritzing</name>
-+ <developer id="org.fritzing">
-+  <name>Fritzing GmbH</name>
-+ </developer>
-  <summary>Electronic Design Tool</summary>
-  <description>
-   <p>
-@@ -28,28 +31,31 @@
+@@ -31,28 +31,31 @@
    </p>
    <p>
      The project is made possible with the payments from our users. If you don't yet have it, please
--	consider downloading the offical, most up to date, version from our website, http://fritzing.org .
-+	consider downloading the offical, most up to date, version from our website, .
+-	consider downloading the offical, most up to date, version from our website https://fritzing.org .
++	consider downloading the offical, most up to date, version from our website.
    </p>
   </description>
   <screenshots>
@@ -47,10 +37,10 @@ index e1b9a541..da022089 100644
   <url type="faq">https://fritzing.org/faq/</url>
   <url type="help">https://fritzing.org/learning/</url>
 - <url type="forum">https://forum.fritzing.org</url>
-  <url type="translate">https://fritzing.org/support-us/language-translation/</url>
+  <url type="translate">https://weblate.fritzing.org</url>
   <releases>
-   <release version="1.0.2b" date="2023-09-09"/>
-@@ -57,6 +63,7 @@
+   <release version="1.0.3" date="2024-02-28"/>
+@@ -60,6 +63,7 @@
   <provides>
    <binary>Fritzing</binary>
   </provides>
