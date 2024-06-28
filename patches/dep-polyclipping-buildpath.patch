@@ -1,32 +1,33 @@
 diff --git a/pri/clipper1detect.pri b/pri/clipper1detect.pri
-index 924a6d5b..96f2370e 100644
+index 5c6505d2..5497bf40 100644
 --- a/pri/clipper1detect.pri
 +++ b/pri/clipper1detect.pri
 @@ -1,27 +1,11 @@
  # Copyright (c) 2023 Fritzing GmbH
-
+ 
 -message("Using fritzing Clipper 1 detect script.")
 +message("Using custom Clipper 1 detect script.")
-
+ 
 -unix {
 -    message("including Clipper1 library on linux or mac")
 +CLIPPER1 = /app/include/polyclipping
 +CLIPPER1_LIB = /app/lib
-
+ 
 -    exists($$absolute_path($$PWD/../../Clipper1)) {
 -	            CLIPPER1 = $$absolute_path($$PWD/../../Clipper1/6.4.2)
 -				message("found Clipper1 in $${CLIPPER1}")
 -			}
 -}
 +message("including $$absolute_path($${CLIPPER1})")
-
++INCLUDEPATH += $$absolute_path($${CLIPPER1})
+ 
 -win32 {
 -    message("including Clipper1 library on windows")
 -
--    exists($$absolute_path($$PWD/../../Clipper1)) {
--	            CLIPPER1 = $$absolute_path($$PWD/../../clipper1/6.4.2)
--				message("found Clipper1 in $${CLIPPER1}")
--			}
+-    exists($$absolute_path($$PWD/../../Clipper1-6.4.2)) {
+-        CLIPPER1 = $$absolute_path($$PWD/../../Clipper1-6.4.2)
+-                    message("found Clipper1 in $${CLIPPER1}")
+-            }
 -}
 -
 -message("including $$absolute_path($${CLIPPER1}/include)")
@@ -34,5 +35,4 @@ index 924a6d5b..96f2370e 100644
 -
 -LIBS += -L$$absolute_path($${CLIPPER1}/lib) -lpolyclipping
 -QMAKE_RPATHDIR += $$absolute_path($${CLIPPER1}/lib)
-+INCLUDEPATH += $$absolute_path($${CLIPPER1})
 +LIBS += -L$$absolute_path($${CLIPPER1_LIB}) -lpolyclipping
