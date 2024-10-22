@@ -140,7 +140,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/fritzing/fritzing-app.git",
-                    "commit": "a7811ba0427e664c740b5616b10626f2d45fd8b3"
+                    "commit": "a8c6ef7cf66f7a42b9b233d6137f1b70a9573a25"
                 },
                 {
                     "type": "git",
@@ -167,7 +167,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/fritzing/fritzing-parts.git",
-                    "commit": "5fe29ef4d0826d823d71c97a28ce428f8cd129d0",
+                    "commit": "76235099ed556e52003de63522fdd74e61d53a36",
                     "dest": "parts"
                 },
                 {
