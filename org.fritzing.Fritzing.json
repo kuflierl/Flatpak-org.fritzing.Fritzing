@@ -33,8 +33,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://boostorg.jfrog.io/artifactory/main/release/1.85.0/source/boost_1_85_0.tar.bz2",
-                    "sha256": "7009fe1faa1697476bdc7027703a2badb84e849b7b0baad5086b087b971f8617",
+                    "url": "https://boostorg.jfrog.io/artifactory/main/release/1.86.0/source/boost_1_86_0.tar.bz2",
+                    "sha256": "1bed88e40401b2cb7a1f76d4bab499e352fa4d0c5f31c0dbae64e24d34d7513b",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 6845,
@@ -113,8 +113,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libgit2/libgit2",
-                    "tag": "v1.8.1",
-                    "commit": "36f7e21ad757a3dacc58cf7944329da6bc1d6e96",
+                    "tag": "v1.8.4",
+                    "commit": "3f4182d15eab74a302718f2de454ffadb1995626",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^v([\\d.]+)$"
