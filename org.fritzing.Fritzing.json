@@ -61,8 +61,8 @@
                 {
                     "type": "git",
                     "url": "https://git.code.sf.net/p/ngspice/ngspice",
-                    "tag": "ngspice-43",
-                    "commit": "2af390f0b12ec460f29464d7325cf3ab5b02d98b",
+                    "tag": "ngspice-44",
+                    "commit": "01a153c9a55bde276394ab4a2fd6826e2cc78fcb",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^ngspice-([\\d]+)$"
