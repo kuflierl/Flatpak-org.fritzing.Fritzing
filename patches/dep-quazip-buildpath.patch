@@ -1,11 +1,11 @@
 diff --git a/pri/quazipdetect.pri b/pri/quazipdetect.pri
-index 07bd5621..8bf3565c 100644
+index 07bd5621..1c970a15 100644
 --- a/pri/quazipdetect.pri
 +++ b/pri/quazipdetect.pri
 @@ -1,29 +1,11 @@
 -# Copyright (c) 2021,2023 Fritzing GmbH
 +# Copyright (c) 2021 Fritzing GmbH
-
+ 
 -message("Using Fritzing quazip detect script.")
 -
 -QUAZIP_VERSION=1.4
@@ -13,7 +13,7 @@ index 07bd5621..8bf3565c 100644
 -QUAZIP_INCLUDE_PATH=$$QUAZIP_PATH/include/QuaZip-Qt6-$$QUAZIP_VERSION
 -QUAZIP_LIB_PATH=$$QUAZIP_PATH/lib
 +message("Using custom quazip detect script.")
-
+ 
  SOURCES += \
 -	src/zlibdummy.c \
 -
@@ -31,11 +31,11 @@ index 07bd5621..8bf3565c 100644
 -	QMAKE_RPATHDIR += $$QUAZIP_LIB_PATH
 -}
 +    src/zlibdummy.c \
-
+ 
 -macx {
 -	LIBS += -lz
 -}
 +message("including quazip library on linux")
 +QUAZIP_LIB_PATH=/app/lib
-+INCLUDEPATH += /app/include/QuaZip-Qt6-1.4/
++INCLUDEPATH += /app/include/QuaZip-Qt6-1.5/
 +LIBS += -L$$QUAZIP_LIB_PATH -lquazip1-qt6
