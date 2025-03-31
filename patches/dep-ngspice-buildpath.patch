@@ -1,5 +1,5 @@
 diff --git a/pri/spicedetect.pri b/pri/spicedetect.pri
-index 76795bd8..08317639 100644
+index 76795bd8..555258d5 100644
 --- a/pri/spicedetect.pri
 +++ b/pri/spicedetect.pri
 @@ -15,8 +15,7 @@
@@ -12,3 +12,10 @@ index 76795bd8..08317639 100644
  
  exists($$NGSPICEPATH) {
  	message("found $${NGSPICEPATH}")
+@@ -24,3 +23,6 @@ exists($$NGSPICEPATH) {
+ } else {
+     error("ngspice not found in $${NGSPICEPATH}")
+ }
++
++LIBS += -L/app/lib/ngspice -lngspice
++QMAKE_RPATHDIR += /app/lib/ngspice
