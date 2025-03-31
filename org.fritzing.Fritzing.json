@@ -94,8 +94,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/stachenov/quazip",
-                    "tag": "v1.4",
-                    "commit": "566fa496649b8cb09018b497575bb3bf2977965f",
+                    "tag": "v1.5",
+                    "commit": "3fd3b299b875fbd2beac4894b8a870d80022cad7",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^v([\\d.]+)$"
