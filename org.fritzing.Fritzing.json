@@ -33,8 +33,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://archives.boost.io/release/1.87.0/source/boost_1_87_0.tar.bz2",
-                    "sha256": "af57be25cb4c4f4b413ed692fe378affb4352ea50fbe294a11ef548f4d527d89",
+                    "url": "https://archives.boost.io/release/1.89.0/source/boost_1_89_0.tar.bz2",
+                    "sha256": "85a33fa22621b4f314f8e85e1a5e2a9363d22e4f4992925d4bb3bc631b5a0c7a",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 6845,
@@ -113,8 +113,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libgit2/libgit2",
-                    "tag": "v1.9.0",
-                    "commit": "338e6fb681369ff0537719095e22ce9dc602dbf0",
+                    "tag": "v1.9.1",
+                    "commit": "0060d9cf5666f015b1067129bd874c6cc4c9c7ac",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^v([\\d.]+)$"
