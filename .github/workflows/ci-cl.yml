@@ -42,7 +42,7 @@ jobs:
       - name: Set up QEMU
         if: ${{ matrix.arch != 'x86_64' }}
         id: qemu
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
         with:
           platforms: arm64
       - name: build
