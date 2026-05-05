@@ -61,8 +61,8 @@
                 {
                     "type": "git",
                     "url": "https://git.code.sf.net/p/ngspice/ngspice",
-                    "tag": "ngspice-44",
-                    "commit": "01a153c9a55bde276394ab4a2fd6826e2cc78fcb",
+                    "tag": "ngspice-46",
+                    "commit": "ebdaf58ec76a06ffaac7e0f138360dd1cf5ee4b6",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^ngspice-([\\d]+)$"
@@ -113,8 +113,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libgit2/libgit2",
-                    "tag": "v1.9.0",
-                    "commit": "338e6fb681369ff0537719095e22ce9dc602dbf0",
+                    "tag": "v1.9.3",
+                    "commit": "1affb8b19346c4f90e163a9a0364959ff1410f64",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^v([\\d.]+)$"
